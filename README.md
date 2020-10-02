@@ -1,6 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/enyo.svg)](https://pypi.org/project/enyo/) [![Downloads](https://pepy.tech/badge/enyo)](https://pepy.tech/project/enyo) [![Downloads](https://pepy.tech/badge/enyo/week)](https://pepy.tech/project/enyo/week) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/apratimshukla6/enyo/issues)
 
-Enyo is a lightweight multistage partition based encryption algorithm
+Enyo is a lightweight multistage partition based encryption algorithm.
 
 # Description
     
@@ -43,4 +43,5 @@ pip install enyo
 git clone https://github.com/apratimshukla6/enyo.git
 cd enyo
 pip install --editable .
+
 ```
