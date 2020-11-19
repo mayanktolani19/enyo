@@ -7,7 +7,7 @@ class EnyoDecryption:
     def __init__(self,text,secret,partition=2,transposition=False):
         self.secret = secret # Secret key for decryption
         self.part = self.partitionChecker(partition)
-        self.ekey = self.keyPartioning(self.encode(self.secret),self.part) # Partition based encoded secret key
+        self.ekey = self.keyPartitioning(self.encode(self.secret),self.part) # Partition based encoded secret key
         self.newCharSet, self.newNumSet = self.charSetModifier(self.ekey) # Modified character sets
         self.key = self.partition(self.ekey,self.part) # Final secret key array for encryption
         if(transposition):
@@ -41,8 +41,12 @@ class EnyoDecryption:
                 bits+=format(ord(i)-71,'06b')
             else:
                 bits+=format(ord(i)+4,'06b')
+        # Removing the extra zeros from the end 
+        l2 = len(bits)//8
+        bits = bits[0:8*l2]
         for i in range(0,len(bits),8):
             decodedWord = decodedWord+chr(int(bits[i:i+8],2))
+        
         return decodedWord
     
     def binarySwap(self,str):
@@ -81,7 +85,7 @@ class EnyoDecryption:
             decrypted += self.numSet[int(bits[0:4],2)+16*int(bits[4:],2)]
         return decrypted
     
-    def keyPartioning(self,encodedKey,part):
+    def keyPartitioning(self,encodedKey,part):
         i = len(encodedKey)%part
         while(len(encodedKey)%part!=0):
             encodedKey = encodedKey+encodedKey[i]
